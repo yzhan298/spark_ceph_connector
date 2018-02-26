@@ -1,7 +1,7 @@
 import rados
 
 try:
-        cluster = rados.Rados(conffile='/home/cc/ceph/build/ceph.conf')
+        cluster = rados.Rados(conffile='/home/cc/SIRIUS-Ceph/docker/configdir/ceph.conf')
 except TypeError as e:
         print 'Argument validation error: ', e
         raise e

@@ -1,7 +1,8 @@
 import rados
+from pyspark.sql import SparkSession
 
 try:
-        cluster = rados.Rados(conffile='/home/cc/ceph/build/ceph.conf')
+        cluster = rados.Rados(conffile='/home/cc/SIRIUS-Ceph/docker/configdir/ceph.conf')
 except TypeError as e:
         print 'Argument validation error: ', e
         raise e
@@ -25,4 +26,12 @@ if not cluster.pool_exists('data'):
 ioctx = cluster.open_ioctx('data')
 
 print "\nContents of object 'hw'\n------------------------"
-print ioctx.read("hw")
+tempFile = ioctx.read("hw")
+
+spark = SparkSession.builder.appName("test").getOrCreate()
+
+sc=spark.sparkContext
+
+rdd = sc.parallelize([tempFile])
+
+print(rdd.collect())
