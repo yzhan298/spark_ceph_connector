@@ -22,7 +22,7 @@ finally:
         print "Connected to the cluster."
 
 # List Ceph pools
-print "Available Pools"
+print "Available Pools:"
 print "----------------"
 pools = cluster.list_pools()
 for pool in pools:
@@ -32,4 +32,4 @@ for pool in pools:
 if not cluster.pool_exists('spark_ceph'):
         raise RuntimeError('No test  pool exists')
 	cluster.create_pool('spark_ceph')
-print "The connection is done. Please start testing."
+print "Connected."
