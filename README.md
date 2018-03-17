@@ -1,2 +1,2 @@
-# spark_ceph_connector
-A Spark-Ceph connector
+# Spark-Ceph Connector
+This Spark-Ceph Connector is created for testing purpose.  

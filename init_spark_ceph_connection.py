@@ -30,6 +30,7 @@ for pool in pools:
 
 # Initiate Ceph test pool
 if not cluster.pool_exists('spark_ceph'):
-        raise RuntimeError('No test  pool exists')
+#        raise RuntimeError('No test  pool exists')
 	cluster.create_pool('spark_ceph')
-print "Connected."
+print "Pool spark_ceph is created."
+print "Ceph is onnected to Spark."
